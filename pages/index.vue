@@ -2,9 +2,9 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">
-        meituan-client-site
-      </h1>
+      <h1 class="title">meituan-client-site</h1>
+      <h2>IP: {{ ip }}</h2>
+
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -28,7 +28,25 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+import Logo from '@/components/Logo.vue'
+
+export default {
+  components: {
+    Logo,
+  },
+  async fetch({ $axios, store }) {
+    const ip = await $axios.$get('http://icanhazip.com')
+    store.commit('setIp', ip)
+  },
+  async asyncData({ $axios }) {
+    const test = await $axios.$get('/api/users/list')
+    return { test }
+  },
+  computed: {
+    ...mapState(['ip']),
+  },
+}
 </script>
 
 <style>
@@ -42,8 +60,8 @@ export default {}
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

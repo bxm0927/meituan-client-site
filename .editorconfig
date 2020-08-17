@@ -1,13 +1,22 @@
-# editorconfig.org
+# For more information about the properties used in
+# this file, please see the EditorConfig documentation:
+# http://editorconfig.org/
+
+# top-most EditorConfig file
 root = true
 
 [*]
-indent_style = space
+charset = utf-8
 indent_size = 2
 end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
+indent_style = space
 insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Minified JavaScript files shouldn't be changed
+[**.min.js]
+indent_style = ignore
+insert_final_newline = ignore
 
 [*.md]
 trim_trailing_whitespace = false

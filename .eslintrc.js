@@ -1,3 +1,6 @@
+const isDev = process.env.NODE_ENV !== 'production'
+console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+
 module.exports = {
   root: true,
   env: {
@@ -15,6 +18,10 @@ module.exports = {
     'plugin:nuxt/recommended',
   ],
   plugins: ['prettier'],
-  // add your custom rules here
-  rules: {},
+
+  rules: {
+    // override/add rules settings here
+    'no-console': isDev ? 'off' : 'error',
+    'no-debugger': isDev ? 'off' : 'error',
+  },
 }

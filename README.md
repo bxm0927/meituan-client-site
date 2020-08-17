@@ -1,4 +1,4 @@
-# meituan-client-site
+# 🎉 meituan-client-site
 
 使用 Nuxt.js + Koa2 + MongoDB + Redis 开发美团网 PC 站。
 
@@ -6,7 +6,9 @@
 
 学习地址：https://coding.imooc.com/class/280.html
 
-## 技术栈
+![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e1bcb825734703af354a5c53b00282~tplv-k3u1fbpfcp-zoom-1.image)
+
+## 📄 技术栈
 
 客户端：
 
@@ -28,9 +30,56 @@
 - Jenkins
 - Docker
 
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e96ff3341074501b238ae8893819504~tplv-k3u1fbpfcp-zoom-1.image)
+
 ## 主要功能模块
 
-## 安装引导
+- 首页
+  - 分类服务
+  - 搜索服务
+  - 个性化推荐服务
+- 登录注册页
+  - SMTMP 服务
+- 城市列表页
+  - 城市服务
+  - 城市定位服务
+- 商品列表页
+  - 地图服务
+- 商品详情页
+- 购物车页面
+  - 订单号生成规则
+- 订单页面
+
+![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d99d3ddb50614390b9328f45ae0ac612~tplv-k3u1fbpfcp-zoom-1.image)
+
+## 表结构设计
+
+areas
+
+header 1 | header 2
+---|---
+row 1 col 1 | row 1 col 2
+row 2 col 1 | row 2 col 2
+
+carts
+
+categorys
+
+cities
+
+menus
+
+orders 订单
+
+pois
+
+provinces
+
+topsearches
+
+users
+
+## 📦 安装引导
 
 ```
 > npx create-nuxt-app meituan-client-site
@@ -49,7 +98,7 @@ create-nuxt-app v3.2.0
 ? Development tools: jsconfig.json (Recommended for VS Code if you're not using typescript)
 ```
 
-## 快速开始
+## 🚀 快速开始
 
 ```bash
 # install dependencies
