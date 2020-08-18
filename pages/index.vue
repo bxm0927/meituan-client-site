@@ -4,6 +4,7 @@
       <Logo />
       <h1 class="title">meituan-client-site</h1>
       <h2>IP: {{ ip }}</h2>
+      <h3>usersList: {{ usersList.map((i) => i.name).join(', ') }}</h3>
 
       <div class="links">
         <a
@@ -40,8 +41,8 @@ export default {
     store.commit('setIp', ip)
   },
   async asyncData({ $axios }) {
-    const test = await $axios.$get('/api/users/list')
-    return { test }
+    const { data } = await $axios.$get('/api/users/list')
+    return { usersList: data }
   },
   computed: {
     ...mapState(['ip']),
