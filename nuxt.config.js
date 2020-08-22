@@ -1,5 +1,3 @@
-console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
-
 export default {
   /*
    ** Nuxt rendering mode
@@ -34,7 +32,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/stylesheets/myreset.scss',
+    '@/assets/stylesheets/common.scss',
+    '@/assets/fonts/iconfont.css',
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -83,7 +86,8 @@ export default {
    */
   proxy: {
     '/api': {
-      target: 'http://localhost:3010',
+      // target: 'http://localhost:3010',
+      target: 'http://api.meituan.bxmsite.com',
       pathRewrite: {
         '^/api': '/',
       },
@@ -96,5 +100,20 @@ export default {
    */
   build: {
     transpile: [/^element-ui/],
+
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
   },
 }

@@ -3,8 +3,8 @@
     <div>
       <Logo />
       <h1 class="title">meituan-client-site</h1>
-      <h2>IP: {{ ip }}</h2>
-      <h3>usersList: {{ usersList.map((i) => i.name).join(', ') }}</h3>
+      <h2 class="subtitle">IP: {{ ip }}</h2>
+      <h3 class="subtitle">usersList: {{ usersList.map((i) => i.name).join(', ') }}</h3>
 
       <div class="links">
         <a
@@ -33,6 +33,7 @@ import { mapState } from 'vuex'
 import Logo from '@/components/Logo.vue'
 
 export default {
+  layout: 'main',
   components: {
     Logo,
   },
@@ -50,32 +51,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
   text-align: center;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
   display: block;
+  color: #35495e;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 1px;
 }
 
 .subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
   padding-bottom: 15px;
+  color: #526488;
+  font-weight: 300;
+  font-size: 28px;
+  word-spacing: 5px;
 }
 
 .links {

@@ -1,0 +1,16 @@
+{
+  "id": "2016862",
+  "name": "meituan-client-site",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "使用 Nuxt.js + Koa2 + MongoDB + Redis 开发美团网 PC 站。",
+  "glyphs": [
+    {
+      "icon_id": "954061",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    }
+  ]
+}
