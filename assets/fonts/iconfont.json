@@ -6,6 +6,13 @@
   "description": "使用 Nuxt.js + Koa2 + MongoDB + Redis 开发美团网 PC 站。",
   "glyphs": [
     {
+      "icon_id": "11493434",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
       "icon_id": "954061",
       "name": "定位",
       "font_class": "dingwei",

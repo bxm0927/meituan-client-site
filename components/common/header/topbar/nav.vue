@@ -58,7 +58,7 @@
             <dd v-for="item in sitemap.app" :key="item.id">
               <a href="#" target="_blank">
                 <img
-                  :src="require(`@/assets/images/common/logo/${item.pic}.png`)"
+                  :src="require(`@/assets/images/common/app-logo/${item.pic}.png`)"
                   :title="item.name"
                   :alt="item.name"
                 />
@@ -162,6 +162,7 @@ export default {
   top: 38px;
   right: -1px;
   z-index: 10;
+  z-index: 20;
   display: none;
   width: 100%;
   line-height: 35px;

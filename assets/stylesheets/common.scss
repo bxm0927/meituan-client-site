@@ -3,7 +3,7 @@
  * @Author: xiaoming.bai
  * @Date: 2018-11-27 11:02:41
  * @Last Modified by: xiaoming.bai
- * @Last Modified time: 2020-08-22 15:18:35
+ * @Last Modified time: 2020-08-22 18:54:20
  */
 
 // ******************************************* Layouts ******************************************* //
@@ -137,14 +137,6 @@
   left: -9999px;
 }
 
-// 隐藏文本，多用于 SEO
-// <a href="/"><h1 class="hide-text">logo etc...</h1></a>
-.hide-text {
-  overflow: hidden;
-  text-align: left;
-  text-indent: -9999px;
-}
-
 // 文字模糊
 .blur {
   -webkit-filter: blur(7px);
@@ -185,6 +177,6 @@
   text-align: center;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.15s ease-in-out;
   user-select: none;
 }

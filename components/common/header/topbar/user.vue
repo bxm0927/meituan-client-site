@@ -6,7 +6,7 @@
     </div>
 
     <div v-else class="login-box">
-      <nuxt-link to="/login" class="login">立即登陆</nuxt-link>
+      <nuxt-link to="/login" class="login">立即登录</nuxt-link>
       <nuxt-link to="/register" class="register">注册</nuxt-link>
     </div>
   </div>

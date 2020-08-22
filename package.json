@@ -10,7 +10,6 @@
     "deploy": "npm run build && pm2 start",
     "analyze": "nuxt build --analyze",
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "lint:js": "eslint --ext .js,.vue .",
     "lintfix:js": "eslint --ext .js,.vue . --fix",
     "lint:style": "stylelint **/*.{css,scss,vue}",
@@ -30,6 +29,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "element-ui": "^2.13.2",
+    "lodash": "^4.17.20",
     "nuxt": "^2.14.0"
   },
   "devDependencies": {

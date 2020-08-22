@@ -1,15 +1,17 @@
 <template>
-  <div class="topbar-wrapper container clearfix">
-    <City />
-    <User />
-    <Nav />
+  <div class="topbar-wrapper">
+    <div class="container clearfix">
+      <City />
+      <User />
+      <Nav />
+    </div>
   </div>
 </template>
 
 <script>
-import City from '@/components/common/topbar/city.vue'
-import User from '@/components/common/topbar/user.vue'
-import Nav from '@/components/common/topbar/nav.vue'
+import City from '@/components/common/header/topbar/city.vue'
+import User from '@/components/common/header/topbar/user.vue'
+import Nav from '@/components/common/header/topbar/nav.vue'
 
 export default {
   components: {
