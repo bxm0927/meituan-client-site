@@ -24,12 +24,6 @@
 <style>
 .NuxtLogo {
   margin: auto;
-  animation: 1s appear;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
+  animation: 1s appear-in;
 }
 </style>

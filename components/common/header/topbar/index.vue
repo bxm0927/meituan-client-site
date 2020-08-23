@@ -27,7 +27,7 @@ export default {
   height: 40px;
   color: #999;
   font-size: 12px;
-  background: #f8f8f8;
+  background-color: #f8f8f8;
 
   /deep/ a {
     color: #999;

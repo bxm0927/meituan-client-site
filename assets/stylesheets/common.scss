@@ -3,7 +3,7 @@
  * @Author: xiaoming.bai
  * @Date: 2018-11-27 11:02:41
  * @Last Modified by: xiaoming.bai
- * @Last Modified time: 2020-08-22 18:54:20
+ * @Last Modified time: 2020-08-23 13:04:39
  */
 
 // ******************************************* Layouts ******************************************* //
@@ -164,6 +164,52 @@
     left: -10px;
     content: '';
   }
+}
+
+// ******************************************* Animation ******************************************* //
+
+// 淡入、淡出
+@keyframes appear-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes appear-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// 浮入、浮出
+@keyframes float-in {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes float-out {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+// 弹入、弹出
+@keyframes bounce-in {
+  0% { transform: scale(0) }
+  50% { transform: scale(1.5) }
+  100% { transform: scale(1) }
+}
+@keyframes bounce-out {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.5) }
+  100% { transform: scale(0) }
 }
 
 // ******************************************* Components ******************************************* //
