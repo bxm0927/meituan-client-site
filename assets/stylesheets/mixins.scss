@@ -13,3 +13,16 @@
   text-overflow: ellipsis;
   word-break: break-all;
 }
+
+// 扩大热区
+@mixin extend-hotspot($n: 10px) {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: -$n;
+    right: -$n;
+    bottom: -$n;
+    left: -$n;
+    content: '';
+  }
+}

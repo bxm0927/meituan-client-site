@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'iconfontNew';
+  src: url('./iconfontNew.eot');
+  src: url('./iconfontNew.eot?#iefix') format('embedded-opentype'),
+    url('./iconfontNew.woff') format('woff'),
+    url('./iconfontNew.ttf') format('truetype'),
+    url('./iconfontNew.svg#iconfont') format('svg');
+}
+
+.iconfontNew {
+  font-size: 16px;
+  font-family: 'iconfontNew' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-food::before {
+  color: #ff8200;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60e';
+}
+
+.icon-hotel::before {
+  color: #9b5e3e;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e616';
+}
+
+.icon-maoyan::before {
+  color: #ff3d00;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e612';
+}
+
+.icon-ktv::before {
+  color: #00bf96;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e607';
+}
+
+.icon-zhenguo::before {
+  color: #ffb500;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60c';
+}
+
+.icon-beauty::before {
+  color: #ff4081;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60f';
+}
+
+.icon-married::before {
+  color: #ff4081;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e609';
+}
+
+.icon-child::before {
+  color: #ff4081;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e608';
+}
+
+.icon-sport::before {
+  color: #03a9f4;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e611';
+}
+
+.icon-decorate::before {
+  color: #00bf96;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60b';
+}
+
+.icon-education::before {
+  color: #00bf96;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e610';
+}
+
+.icon-medical::before {
+  color: #03a9f4;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60d';
+}
+
+.icon-bar::before {
+  color: #00bf96;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e606';
+}
+
+.icon-waimai::before {
+  color: #ffb500;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e60a';
+}
+
+.icon-plane::before {
+  color: #03a9f4;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e615';
+}
+
+.icon-life::before {
+  color: #00bf96;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e614';
+}
+
+.icon-travel::before {
+  color: #03a9f4;
+  line-height: 18px;
+  vertical-align: middle;
+  content: '\e613';
+}

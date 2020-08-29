@@ -1,8 +1,6 @@
 <template>
   <section class="homestay-wrapper">
-    <div class="container">
-      <h1>homestay-wrapper</h1>
-    </div>
+    <h1>homestay-wrapper</h1>
   </section>
 </template>
 

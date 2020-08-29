@@ -9,7 +9,7 @@
 <script>
 import Topbar from '@/components/common/header/topbar/index.vue'
 import Searchbar from '@/components/common/header/searchbar/index.vue'
-import Navbar from '@/components/common/header/searchbar/nav.vue'
+import Navbar from '@/components/common/header/navbar/index.vue'
 
 export default {
   components: {

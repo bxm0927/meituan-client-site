@@ -1,8 +1,6 @@
 <template>
   <section class="guess-wrapper">
-    <div class="container">
-      <h1>guess-wrapper</h1>
-    </div>
+    <h1>guess-wrapper</h1>
   </section>
 </template>
 

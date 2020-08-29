@@ -36,7 +36,8 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/stylesheets/myreset.scss',
     '@/assets/stylesheets/common.scss',
-    '@/assets/fonts/iconfont.css',
+    '@/assets/fonts/iconfont/iconfont.css',
+    '@/assets/fonts/iconfontNew/iconfontNew.css',
   ],
 
   /*
@@ -60,7 +61,21 @@ export default {
 
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+
+    // Doc: https://zh.nuxtjs.org/api/configuration-build/#styleresources
+    '@nuxtjs/style-resources',
   ],
+
+  /**
+   ** styleResources module configuration
+   */
+  styleResources: {
+    scss: [
+      '@/assets/stylesheets/variables.scss',
+      '@/assets/stylesheets/mixins.scss',
+      '@/assets/stylesheets/functions.scss',
+    ],
+  },
 
   /*
    ** Nuxt.js modules

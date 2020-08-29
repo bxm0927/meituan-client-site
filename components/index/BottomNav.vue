@@ -1,8 +1,6 @@
 <template>
   <nav class="bottom-wrapper">
-    <div class="container">
-      <h1>bottom-wrapper</h1>
-    </div>
+    <h1>bottom-wrapper</h1>
   </nav>
 </template>
 

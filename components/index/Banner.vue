@@ -1,17 +1,24 @@
 <template>
-  <section class="banner-wrapper">
-    <div class="container">
-      <h1>banner-wrapper</h1>
-    </div>
+  <section class="banner-wrapper clearfix">
+    <BannerCategory />
+
+    <div class="right-banner fl">right-banner</div>
   </section>
 </template>
 
 <script>
-export default {}
+import BannerCategory from './BannerCategory.vue'
+
+export default {
+  components: {
+    BannerCategory,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-.banner-wrapper {
-  color: red;
+.right-banner {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 </style>

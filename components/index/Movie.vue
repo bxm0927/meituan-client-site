@@ -1,8 +1,6 @@
 <template>
   <section class="movie-wrapper">
-    <div class="container">
-      <h1>movie-wrapper</h1>
-    </div>
+    <h1>movie-wrapper</h1>
   </section>
 </template>
 

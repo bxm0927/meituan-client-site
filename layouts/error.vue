@@ -4,16 +4,18 @@
       <Logo />
       <h1 class="title">{{ error.statusCode }}</h1>
       <h2 class="info">{{ error.message }}</h2>
-
-      <nuxt-link v-if="error.statusCode === 404" class="button" to="/">
-        Homepage
-      </nuxt-link>
+      <nuxt-link v-if="error.statusCode === 404" class="button" to="/">Homepage</nuxt-link>
     </div>
   </section>
 </template>
 
 <script>
+import Logo from '@/components/base/Logo.vue'
+
 export default {
+  components: {
+    Logo,
+  },
   props: {
     error: {
       type: Object,

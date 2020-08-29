@@ -1,8 +1,10 @@
 <template>
-  <div class="searchbar-wrapper container clearfix">
-    <Logo />
-    <Search />
-  </div>
+  <section class="searchbar-wrapper">
+    <div class="container clearfix">
+      <Logo />
+      <Search />
+    </div>
+  </section>
 </template>
 
 <script>

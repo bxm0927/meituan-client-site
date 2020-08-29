@@ -1,11 +1,11 @@
 <template>
-  <div class="topbar-wrapper">
+  <section class="topbar-wrapper">
     <div class="container clearfix">
       <City />
       <User />
       <Nav />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

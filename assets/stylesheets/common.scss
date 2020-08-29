@@ -3,7 +3,7 @@
  * @Author: xiaoming.bai
  * @Date: 2018-11-27 11:02:41
  * @Last Modified by: xiaoming.bai
- * @Last Modified time: 2020-08-23 13:04:39
+ * @Last Modified time: 2020-08-29 14:58:23
  */
 
 // ******************************************* Layouts ******************************************* //
@@ -23,7 +23,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 // Flexbox centering
@@ -34,6 +34,7 @@
   justify-content: center;  // centers the child horizontally.
 }
 
+// 全屏遮罩
 .screen-mask {
   position: fixed;
   top: 0;
@@ -45,6 +46,7 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+// 区域遮罩
 .area-mask {
   position: absolute;
   top: 0;
@@ -151,19 +153,6 @@
 .retext-y {
   writing-mode: tb-rl;
   writing-mode: vertical-rl;
-}
-
-// 扩大热区
-.extend-hotspot {
-  position: relative;
-  &::before {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    bottom: -10px;
-    left: -10px;
-    content: '';
-  }
 }
 
 // ******************************************* Animation ******************************************* //

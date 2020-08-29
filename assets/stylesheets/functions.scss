@@ -1,0 +1,4 @@
+// https://www.jianshu.com/p/7f879ce0cbb9
+@function column-width($col, $total) {
+  @return percentage($col/$total);
+}

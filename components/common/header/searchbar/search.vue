@@ -17,7 +17,8 @@
     </div>
 
     <!-- 历史搜索 -->
-    <div v-if="isShowSearchHistory" class="search-suggest-panel search-history">
+    <!-- SearchHistory -->
+    <div v-if="isShowSearchHistory" class="search-panel search-history">
       <div class="header">
         <span class="title">最近搜索</span>
         <span class="clean fr" @click="cleanSearchHistory">删除搜索历史</span>
@@ -31,7 +32,8 @@
     </div>
 
     <!-- 搜索结果 -->
-    <div v-if="isShowSearchResult" class="search-suggest-panel search-result">
+    <!-- SearchResult -->
+    <div v-if="isShowSearchResult" class="search-panel search-result">
       <ul>
         <li v-for="item in searchResult" :key="item.id" class="search-result-item">
           <a href="#" class="search-result-link">{{ item.name }}</a>
@@ -40,20 +42,18 @@
     </div>
 
     <!-- 热门搜索词 -->
-    <div class="search-hotword">
-      <ul>
-        <li v-for="item in searchHotword" :key="item.id" class="search-hotword-item">
-          {{ item.name + item.id }}
-        </li>
-      </ul>
-    </div>
+    <SearchHotword />
   </div>
 </template>
 
 <script>
 import { debounce } from 'lodash'
+import SearchHotword from '@/components/common/header/searchbar/SearchHotword.vue'
 
 export default {
+  components: {
+    SearchHotword,
+  },
   data() {
     return {
       searchKeyword: '', // 搜索词
@@ -80,13 +80,6 @@ export default {
         { id: 8, name: '1元抢购' },
         { id: 9, name: '1号电池' },
         { id: 10, name: '13酒吧' },
-      ],
-      searchHotword: [
-        { id: 1, name: '热门搜索词' },
-        { id: 2, name: '热门搜索词' },
-        { id: 3, name: '热门搜索词' },
-        { id: 4, name: '热门搜索词' },
-        { id: 5, name: '热门搜索词' },
       ],
     }
   },
@@ -178,7 +171,7 @@ export default {
   }
 }
 
-.search-suggest-panel {
+.search-panel {
   position: absolute;
   box-sizing: border-box;
   width: 470px;
@@ -225,19 +218,6 @@ export default {
       color: #fe8c00;
       background-color: #f8f8f8;
     }
-  }
-}
-
-.search-hotword {
-  width: 550px;
-  font-size: 12px;
-  ul {
-    margin-top: 8px;
-    margin-left: 15px;
-  }
-  li {
-    display: inline-block;
-    margin-right: 8px;
   }
 }
 </style>
