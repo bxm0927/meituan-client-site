@@ -350,8 +350,9 @@ export default {
 
 .category-detail {
   position: absolute;
-  top: 60px;
-  left: 230px;
+  top: 59px;
+  left: 229px;
+  z-index: 10;
   width: 400px;
   height: 416px;
   overflow: hidden;
