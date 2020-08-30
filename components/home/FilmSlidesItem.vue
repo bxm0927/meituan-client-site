@@ -42,20 +42,21 @@ export default {
       const PREFIX3 = 'http://p1.meituan.net/w.h'
       const PREFIX4 = 'https://p0.meituan.net'
       const SUFFIX = '@420w_600h_1e_1c'
+      const img = this.data.img
 
-      if (this.data.img.startsWith('http://p0')) {
-        return this.data.img.replace(PREFIX1, PREFIX2) + SUFFIX
+      if (img.startsWith(PREFIX1)) {
+        return img.replace(PREFIX1, PREFIX2) + SUFFIX
       }
-      if (this.data.img.startsWith('http://p1')) {
-        return this.data.img.replace(PREFIX3, PREFIX4) + SUFFIX
+      if (img.startsWith(PREFIX3)) {
+        return img.replace(PREFIX3, PREFIX4) + SUFFIX
       }
-      return this.data.img + SUFFIX
+      return img + SUFFIX
     },
     // 格式化电影标识
     // ["2D", "3D", "IMAX 2D", "IMAX 3D", "中国巨幕3D", "杜比影院 3D" ...]
     filmMark() {
-      if (!this.ver) return null
-      const vers = this.ver.split('/')
+      if (!this.data.ver) return null
+      const vers = this.data.ver.split('/')
 
       if (vers.includes('IMAX 3D')) {
         return {
@@ -93,9 +94,9 @@ export default {
 .slide-item {
   position: relative;
   display: inline-block;
-  width: 210px;
+  width: 18%;
   height: 300px;
-  margin-right: 20px;
+  margin-right: 2%;
 }
 
 .film-img {

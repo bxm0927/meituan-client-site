@@ -127,7 +127,9 @@ export default {
   padding: 20px;
   overflow: hidden;
   background-color: #fff;
-  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
 }
 
 .film-content:hover {
