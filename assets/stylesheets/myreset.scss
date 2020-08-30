@@ -4,7 +4,7 @@
  * @Author: xiaoming.bai
  * @Date: 2019-03-05 10:33:59
  * @Last Modified by: xiaoming.bai
- * @Last Modified time: 2020-08-22 15:14:52
+ * @Last Modified time: 2020-08-29 22:06:41
  */
 
 @charset "UTF-8";
@@ -255,7 +255,7 @@ q, blockquote {
 
 q::before, q::after,
 blockquote::before, blockquote::after {
-  content: '';
+  content: ' ';
   content: none;
 }
 

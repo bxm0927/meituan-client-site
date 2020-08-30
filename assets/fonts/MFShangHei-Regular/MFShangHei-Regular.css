@@ -1,0 +1,14 @@
+@font-face {
+  font-weight: normal;
+  font-family: 'MFShangHei-Regular';
+  font-style: normal;
+  src: url('./MFShangHei-Regular.eot'); /* IE9 */
+  src: url('./MFShangHei-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./MFShangHei-Regular.woff') format('woff'), /* chrome、firefox */
+    url('./MFShangHei-Regular.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url('./MFShangHei-Regular.svg#MFShangHei-Regular') format('svg'); /* iOS 4.1- */
+}
+
+.mf-shang-hei-regular {
+  font-family: 'MFShangHei-Regular';
+}

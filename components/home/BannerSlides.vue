@@ -28,6 +28,7 @@ export default {
 .slides {
   width: 550px;
   height: 100%;
+  background-color: #fff;
 }
 
 .pic {

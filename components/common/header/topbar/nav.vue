@@ -179,7 +179,7 @@ export default {
     width: 76px;
     height: 4px;
     background-color: #fff;
-    content: '';
+    content: ' ';
   }
   &.merchant {
     width: 150%;

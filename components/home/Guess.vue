@@ -10,6 +10,8 @@ export default {}
 
 <style lang="scss" scoped>
 .guess-wrapper {
-  color: red;
+  height: 340px;
+  margin-top: 40px;
+  background-color: deepskyblue;
 }
 </style>

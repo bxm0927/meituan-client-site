@@ -38,6 +38,7 @@ export default {
     '@/assets/stylesheets/common.scss',
     '@/assets/fonts/iconfont/iconfont.css',
     '@/assets/fonts/iconfontNew/iconfontNew.css',
+    '@/assets/fonts/MFShangHei-Regular/MFShangHei-Regular.css',
   ],
 
   /*

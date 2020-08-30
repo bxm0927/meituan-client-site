@@ -11,3 +11,10 @@ export const mutations = {
     state.ip = ip
   },
 }
+
+export const actions = {
+  async nuxtServerInit({ commit }, { $axios }) {
+    const ip = await $axios.$get('http://icanhazip.com')
+    commit('setIp', ip)
+  },
+}

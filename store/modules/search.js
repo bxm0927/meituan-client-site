@@ -1,5 +1,5 @@
 export const state = () => ({
-  title: 'project title',
+  title: 'search store',
 })
 
 export const mutations = {
