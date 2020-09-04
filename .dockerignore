@@ -1,0 +1,21 @@
+# IDE / Editor
+.idea
+.vscode
+
+# macOS
+.DS_Store
+
+# Dependency directories
+node_modules/
+npm-debug.log*
+
+# Nuxt.js build
+.nuxt
+
+# Misc
+.git
+.gitignore
+.dockerignore
+docker-compose*
+.editorconfig
+README.md

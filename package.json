@@ -1,19 +1,31 @@
 {
   "name": "meituan-client-site",
+  "description": "基于 Nuxt.js 开发美团网 PC 站",
+  "author": "xiaoming.bai <80583600@qq.com>",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "keywords": [
+    "JavaScript",
+    "Vue",
+    "Nuxt.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bxm0927/meituan-client-site.git"
+  },
+  "homepage": "https://github.com/bxm0927/meituan-client-site",
+  "bugs": "https://github.com/bxm0927/meituan-client-site/issues",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "deploy": "npm run build && pm2 start",
     "analyze": "nuxt build --analyze",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:js": "eslint --ext .js,.vue .",
     "lintfix:js": "eslint --ext .js,.vue . --fix",
-    "lint:style": "stylelint **/*.{css,scss,vue}",
-    "lintfix:style": "stylelint **/*.{css,scss,vue} --fix",
+    "lint:style": "stylelint **/**/*.{css,scss,vue}",
+    "lintfix:style": "stylelint **/**/*.{css,scss,vue} --fix",
     "lint": "npm run lint:js && npm run lint:style",
     "lintfix": "npm run lintfix:js && npm run lintfix:style"
   },

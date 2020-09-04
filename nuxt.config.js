@@ -1,19 +1,29 @@
 export default {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
+  /**
+   * Nuxt rendering mode
+   * See https://nuxtjs.org/api/configuration-mode
    */
   mode: 'universal',
 
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
+  /**
+   * Nuxt target
+   * See https://nuxtjs.org/api/configuration-target
    */
   target: 'server',
 
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
+  /**
+   * define the server connection variables
+   * See https://zh.nuxtjs.org/api/configuration-server
+   * See https://zh.nuxtjs.org/faq/host-port
+   */
+  server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  },
+
+  /**
+   * Headers of the page
+   * See https://nuxtjs.org/api/configuration-head
    */
   head: {
     title: process.env.npm_package_name || '',
@@ -29,8 +39,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  /*
-   ** Global CSS
+  /**
+   * Global CSS
    */
   css: [
     'element-ui/lib/theme-chalk/index.css',
@@ -41,9 +51,9 @@ export default {
     '@/assets/fonts/MFShangHei-Regular/MFShangHei-Regular.css',
   ],
 
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
+  /**
+   * Plugins to load before mounting the App
+   * https://nuxtjs.org/guide/plugins
    */
   plugins: [
     '@/plugins/element-ui',
@@ -53,8 +63,8 @@ export default {
     '@/plugins/axios',
   ],
 
-  /*
-   ** Nuxt.js dev-modules
+  /**
+   * Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
@@ -68,7 +78,7 @@ export default {
   ],
 
   /**
-   ** styleResources module configuration
+   * styleResources module configuration
    */
   styleResources: {
     scss: [
@@ -78,8 +88,8 @@ export default {
     ],
   },
 
-  /*
-   ** Nuxt.js modules
+  /**
+   * Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
@@ -90,15 +100,15 @@ export default {
     '@nuxtjs/axios',
   ],
 
-  /*
-   ** Axios module configuration
+  /**
+   * Axios module configuration
    */
   axios: {
     proxy: true,
   },
 
-  /*
-   ** Proxy module configuration
+  /**
+   * Proxy module configuration
    */
   proxy: {
     '/api': {
@@ -110,15 +120,15 @@ export default {
     },
   },
 
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
+  /**
+   * Build configuration
+   * See https://nuxtjs.org/api/configuration-build/
    */
   build: {
     transpile: [/^element-ui/],
 
-    /*
-     ** You can extend webpack config here
+    /**
+     * You can extend webpack config here
      */
     extend(config, ctx) {
       // Run ESLint on save
