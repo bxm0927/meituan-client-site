@@ -32,6 +32,8 @@ husky-->lint-staged
 
 ### ESLint
 
+> 基于 `@nuxtjs/eslint-module`: https://github.com/nuxt-community/eslint-module
+
 安装依赖：
 
 ```
@@ -95,6 +97,8 @@ rules: [
 ```
 
 ### Stylelint
+
+> 基于 `@nuxtjs/stylelint-module`: https://github.com/nuxt-community/stylelint-module
 
 安装依赖：
 
