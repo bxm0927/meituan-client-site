@@ -1,10 +1,7 @@
-version: '3.4'
+version: "3.8"
 
 services:
   meituan-client-site:
-    image: meituan-client-site
     build: .
-    # environment:
-      # NODE_ENV: production
     ports:
       - 3000:3000

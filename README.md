@@ -52,33 +52,6 @@
 
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d99d3ddb50614390b9328f45ae0ac612~tplv-k3u1fbpfcp-zoom-1.image)
 
-## 表结构设计
-
-areas
-
-header 1 | header 2
----|---
-row 1 col 1 | row 1 col 2
-row 2 col 1 | row 2 col 2
-
-carts
-
-categorys
-
-cities
-
-menus
-
-orders 订单
-
-pois
-
-provinces
-
-topsearches
-
-users
-
 ## 📦 安装引导
 
 ```
