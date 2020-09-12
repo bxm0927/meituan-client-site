@@ -5,18 +5,15 @@
       <Film />
       <Homestay />
       <Recommend />
-      <BottomNav />
     </div>
   </main>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import Banner from '@/components/home/Banner.vue'
 import Film from '@/components/home/Film.vue'
 import Homestay from '@/components/home/Homestay.vue'
 import Recommend from '@/components/home/Recommend.vue'
-import BottomNav from '@/components/home/BottomNav.vue'
 
 export default {
   layout: 'main',
@@ -25,25 +22,23 @@ export default {
     Film,
     Homestay,
     Recommend,
-    BottomNav,
   },
-  computed: {
-    ...mapState(['ip']),
-  },
-  async mounted() {
-    const [categories, hotFilms, comingFilms, recommends] = await Promise.all([
-      this.$axios.$get('/mock/categories.json'),
-      this.$axios.$get('/mock/hotFilms.json'),
-      this.$axios.$get('/mock/comingFilms.json'),
-      this.$axios.$get('/mock/recommends.json'),
+  async fetch({ $axios, store }) {
+    const [categories, hotFilms, comingFilms, minsuCitys, recommends] = await Promise.all([
+      $axios.$get('/mock/categories.json'),
+      $axios.$get('/mock/hotFilms.json'),
+      $axios.$get('/mock/comingFilms.json'),
+      $axios.$get('/mock/minsuCitys.json'),
+      $axios.$get('/mock/recommends.json'),
     ])
 
-    this.$store.commit('modules/home/setCategories', categories.data)
-    this.$store.commit('modules/home/setHotFilms', hotFilms.data.hot)
-    this.$store.commit('modules/home/setComingFilms', comingFilms.data.coming)
-    this.$store.commit('modules/home/setRecommends', recommends)
+    store.commit('modules/home/setCategories', categories.data)
+    store.commit('modules/home/setHotFilms', hotFilms.data.hot)
+    store.commit('modules/home/setComingFilms', comingFilms.data.coming)
+    store.commit('modules/home/setMinsuCitys', minsuCitys.cityList)
+    store.commit('modules/home/setRecommends', recommends)
 
-    const { data } = await this.$axios.$get('/api/users/list')
+    const { data } = await $axios.$get('/api/users/list')
     console.log('data: ', data)
   },
 }

@@ -112,8 +112,8 @@ export default {
    */
   proxy: {
     '/api': {
-      // target: 'http://localhost:3010',
-      target: 'http://api.meituan.bxmsite.com',
+      target: 'http://localhost:4000',
+      // target: 'http://api.meituan.bxmsite.com',
       pathRewrite: {
         '^/api': '/',
       },

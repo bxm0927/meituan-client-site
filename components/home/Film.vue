@@ -10,7 +10,7 @@
           :key="item.id"
           class="nav-item fl"
           :class="{ active: item.id === activeNavItem }"
-          @mouseenter="handelNavItemEnter(item)"
+          @click="handelNavItemClick(item)"
         >
           {{ item.name }}
         </li>
@@ -48,7 +48,7 @@ export default {
     ...mapState('modules/home', ['hotFilms', 'comingFilms']),
   },
   methods: {
-    handelNavItemEnter(item) {
+    handelNavItemClick(item) {
       if (item.id === this.activeNavItem) return
       this.activeNavItem = item.id
     },
@@ -83,7 +83,7 @@ export default {
     &.total .all {
       position: relative;
       display: inline-block;
-      padding: 0 10px;
+      padding: 0 8px;
       color: #fff;
       &::after {
         position: absolute;

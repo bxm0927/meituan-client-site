@@ -57,7 +57,6 @@ export default {
     // 翻页
     turnPage(type) {
       const slidesRef = this.$refs.slidesRef
-      console.log('slidesRef: ', slidesRef)
       if (!slidesRef) return
 
       if (type === 'prev') {
