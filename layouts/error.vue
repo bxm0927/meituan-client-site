@@ -13,6 +13,7 @@
 import Logo from '@/components/base/Logo.vue'
 
 export default {
+  name: 'Error',
   components: {
     Logo,
   },

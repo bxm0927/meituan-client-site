@@ -16,7 +16,8 @@ import Homestay from '@/components/home/Homestay.vue'
 import Recommend from '@/components/home/Recommend.vue'
 
 export default {
-  layout: 'main',
+  layout: 'common',
+  name: 'Home',
   components: {
     Banner,
     Film,
