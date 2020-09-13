@@ -120,11 +120,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.page-register {
+<style lang="scss">
+body {
   background-color: #fff;
 }
+</style>
 
+<style lang="scss" scoped>
 .container {
   width: 980px;
 }
