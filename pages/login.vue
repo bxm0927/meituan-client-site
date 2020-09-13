@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'blank',
+}
 </script>
 
 <style lang="scss" scoped>
