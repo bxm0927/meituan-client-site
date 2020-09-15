@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <div class="page page-register">
+  <div class="page">
     <!-- 头部 -->
     <header class="header">
       <div class="container clearfix">
@@ -39,7 +39,12 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button size="mini" round @click="getCode">获取验证码 {{ codeMessage }}</el-button>
+          <el-button size="mini" round :disabled="codeCountdown ? true : false" @click="getCode">
+            获取验证码
+          </el-button>
+          <span v-if="codeCountdown" class="count">
+            验证码已发送，有效期剩余{{ codeCountdown }}秒
+          </span>
         </el-form-item>
 
         <el-form-item label="验证码" prop="code">
@@ -63,11 +68,22 @@
 </template>
 
 <script>
+import MD5 from 'crypto-js/md5'
+
 export default {
-  layout: 'blank',
   data() {
     // 自定义校验规则
     const validatePassword = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.ruleForm.checkPassword !== '') {
+          this.$refs.ruleForm.validateField('checkPassword')
+        }
+        callback()
+      }
+    }
+    const validateCheckPassword = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请再次输入密码'))
       } else if (value !== this.ruleForm.password) {
@@ -78,8 +94,7 @@ export default {
     }
 
     return {
-      codeMessage: '', // 获取验证码提示信息
-
+      codeCountdown: '', // 验证码有效期倒计时
       // 表单参数
       ruleForm: {
         username: '',
@@ -88,7 +103,6 @@ export default {
         password: '',
         checkPassword: '',
       },
-
       // 表单校验规则
       rules: {
         username: [
@@ -101,32 +115,87 @@ export default {
         code: [{ required: true, message: '请输入邮箱中的验证码', trigger: ['blur', 'change'] }],
         password: [
           { required: true, message: '请输入密码', trigger: ['blur', 'change'] },
-          { min: 6, max: 16, message: '长度在 6 到 16 个字符', trigger: ['blur', 'change'] },
+          { validator: validatePassword, trigger: ['blur', 'change'] },
         ],
-        checkPassword: [{ validator: validatePassword, trigger: ['blur', 'change'] }],
+        checkPassword: [
+          { required: true, message: '请再次输入密码', trigger: ['blur', 'change'] },
+          { validator: validateCheckPassword, trigger: ['blur', 'change'] },
+        ],
       },
     }
   },
   methods: {
     // 获取验证码
-    getCode() {
-      console.log('getCode')
+    async getCode() {
+      let usernamePass = false
+      let emailPass = false
+
+      // validateField 对部分表单字段进行校验的方法
+      this.$refs.ruleForm.validateField('username', (err) => (usernamePass = !err))
+      this.$refs.ruleForm.validateField('email', (err) => (emailPass = !err))
+      if (!usernamePass || !emailPass) return false
+
+      const { username, email } = this.ruleForm
+      const result = await this.$axios.$post('/api/users/verify', {
+        email,
+        username: encodeURIComponent(username), // 对中文进行编码存储
+      })
+      if (result.code !== '0') return
+
+      // 开启一个验证码有效期倒计时
+      let count = 300
+      let timer = null
+      this.codeCountdown = count--
+      timer = setInterval(() => {
+        this.codeCountdown = count--
+        if (count <= 0) {
+          clearInterval(timer)
+          this.codeCountdown = ''
+        }
+      }, 1000)
     },
     // 立即注册
-    submitForm() {
-      console.log('register')
+    // 需要对密码进行加密传输
+    async submitForm() {
+      let pass = false
+
+      // validate	对整个表单进行校验的方法
+      this.$refs.ruleForm.validate((valid) => (pass = valid))
+      if (!pass) return
+
+      const { username, password, email, code } = this.ruleForm
+      const result = await this.$axios.$post('/api/users/register', {
+        code,
+        email,
+        password: MD5(password).toString(),
+        username: encodeURIComponent(username), // 对中文进行编码存储
+      })
+
+      if (result.code === '0') {
+        this.$message({
+          message: '注册成功',
+          type: 'success',
+        })
+
+        setTimeout(() => {
+          location.href = '/login'
+        }, 1500)
+      } else {
+        this.$alert(result.msg || '网络错误，请稍后再试', '注册失败', {
+          confirmButtonText: '知道了',
+        })
+      }
     },
   },
 }
 </script>
 
-<style lang="scss">
-body {
-  background-color: #fff;
-}
-</style>
-
 <style lang="scss" scoped>
+.page {
+  min-height: 100vh;
+  background: #fff;
+}
+
 .container {
   width: 980px;
 }
@@ -163,5 +232,9 @@ body {
 .form-content {
   box-sizing: border-box;
   padding: 30px 550px 30px 0;
+  .count {
+    margin-left: 10px;
+    color: #fe8c00;
+  }
 }
 </style>

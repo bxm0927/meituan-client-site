@@ -1,8 +1,8 @@
 <template>
   <div class="user-wrapper fl">
-    <div v-if="user" class="user-box">
-      欢迎您，<span>{{ user.name }}</span> !
-      <nuxt-link to="/logout">[退出]</nuxt-link>
+    <div v-if="userInfo" class="user-box">
+      <span>欢迎您, {{ decodeURIComponent(userInfo.username) }}!</span>
+      <span class="logout" @click="logout">[退出登录]</span>
     </div>
 
     <div v-else class="login-box">
@@ -16,8 +16,31 @@
 export default {
   data() {
     return {
-      user: '',
+      userInfo: '',
     }
+  },
+  mounted() {
+    this.getUserInfo()
+  },
+  methods: {
+    async getUserInfo() {
+      const result = await this.$axios.$get('/api/users/info')
+      if (result.code === '0') {
+        this.userInfo = result.data
+      }
+    },
+    async logout() {
+      const result = await this.$axios.$get('/api/users/logout')
+      if (result.code === '0') {
+        this.$message({
+          message: '成功退出登录！',
+          type: 'success',
+        })
+        setTimeout(() => {
+          location.reload()
+        }, 1500)
+      }
+    },
   },
 }
 </script>
@@ -27,6 +50,14 @@ export default {
   height: 40px;
   margin-left: 20px;
   line-height: 40px;
+
+  .logout {
+    margin-left: 10px;
+    &:hover {
+      color: #fe8c00;
+      cursor: pointer;
+    }
+  }
 
   .login {
     color: #fe8c00;

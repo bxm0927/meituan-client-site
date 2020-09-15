@@ -1,5 +1,5 @@
 <template>
-  <div class="page page-login">
+  <div class="page">
     <!-- 头部 -->
     <header class="header">
       <div class="container">
@@ -42,8 +42,10 @@
 </template>
 
 <script>
+import qs from 'query-string'
+import MD5 from 'crypto-js/md5'
+
 export default {
-  layout: 'blank',
   data() {
     return {
       username: '',
@@ -53,7 +55,7 @@ export default {
     }
   },
   methods: {
-    login() {
+    async login() {
       if (!this.username) {
         this.errorMessage = '请输入用户名'
         return
@@ -63,26 +65,45 @@ export default {
         return
       }
       this.errorMessage = ''
-      console.log('login')
+
+      const result = await this.$axios.$get('/api/users/login', {
+        params: {
+          username: encodeURIComponent(this.username), // 对中文进行编码存储
+          password: MD5(this.password).toString(),
+        },
+      })
+
+      if (result.code === '0') {
+        this.$message({
+          message: '登录成功',
+          type: 'success',
+        })
+
+        setTimeout(() => {
+          const { refer } = qs.parse(location.search)
+          location.href = refer ? decodeURIComponent(refer) : '/'
+        }, 1500)
+      } else {
+        this.errorMessage = result.msg || '网络错误，请稍后再试'
+      }
     },
   },
 }
 </script>
 
-<style lang="scss">
-body {
-  background-color: #fff;
-}
-</style>
-
 <style lang="scss" scoped>
+.page {
+  min-height: 100vh;
+  background: #fff;
+}
+
 .container {
   width: 980px;
 }
 
 .header {
   box-sizing: border-box;
-  margin: 40px auto 30px;
+  padding: 40px 0;
   .logo {
     display: inline-block;
     width: 130px;

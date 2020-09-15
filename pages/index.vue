@@ -1,5 +1,5 @@
 <template>
-  <main class="page page-index">
+  <main class="page">
     <div class="container">
       <Banner />
       <Film />
@@ -38,9 +38,6 @@ export default {
     store.commit('modules/home/setComingFilms', comingFilms.data.coming)
     store.commit('modules/home/setMinsuCitys', minsuCitys.cityList)
     store.commit('modules/home/setRecommends', recommends)
-
-    const { data } = await $axios.$get('/api/users/list')
-    console.log('data: ', data)
   },
 }
 </script>

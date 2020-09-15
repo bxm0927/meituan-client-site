@@ -1,16 +1,14 @@
+/*
+ * Nuxt Configuration
+ * @Author: xiaoming.bai
+ * @Date: 2020-09-14 19:52:22
+ * @Last Modified by: xiaoming.bai
+ * @Last Modified time: 2020-09-14 23:38:24
+ */
+
+const isDev = process.env.NODE_ENV === 'development'
+
 export default {
-  /**
-   * Nuxt rendering mode
-   * See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
-
-  /**
-   * Nuxt target
-   * See https://nuxtjs.org/api/configuration-target
-   */
-  target: 'server',
-
   /**
    * define the server connection variables
    * See https://zh.nuxtjs.org/api/configuration-server
@@ -18,7 +16,7 @@ export default {
    */
   server: {
     port: 3000, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: isDev ? 'localhost' : '0.0.0.0', // default: localhost
   },
 
   /**
