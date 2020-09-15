@@ -2,7 +2,7 @@
   <main class="page">
     <div class="container">
       <Banner />
-      <Film />
+      <Movie />
       <Homestay />
       <Recommend />
     </div>
@@ -11,7 +11,7 @@
 
 <script>
 import Banner from '@/components/home/Banner.vue'
-import Film from '@/components/home/Film.vue'
+import Movie from '@/components/home/Movie.vue'
 import Homestay from '@/components/home/Homestay.vue'
 import Recommend from '@/components/home/Recommend.vue'
 
@@ -20,20 +20,20 @@ export default {
   name: 'Home',
   components: {
     Banner,
-    Film,
+    Movie,
     Homestay,
     Recommend,
   },
   async fetch({ $axios, store }) {
-    const [categories, hotFilms, comingFilms, minsuCitys, recommends] = await Promise.all([
-      $axios.$get('/mock/categories.json'),
+    const [menu, hotFilms, comingFilms, minsuCitys, recommends] = await Promise.all([
+      $axios.$get('/api/search/menu'),
       $axios.$get('/mock/hotFilms.json'),
       $axios.$get('/mock/comingFilms.json'),
       $axios.$get('/mock/minsuCitys.json'),
       $axios.$get('/mock/recommends.json'),
     ])
 
-    store.commit('modules/home/setCategories', categories.data)
+    store.commit('modules/home/setMenu', menu.data)
     store.commit('modules/home/setHotFilms', hotFilms.data.hot)
     store.commit('modules/home/setComingFilms', comingFilms.data.coming)
     store.commit('modules/home/setMinsuCitys', minsuCitys.cityList)

@@ -1,7 +1,7 @@
 <template>
   <div class="city-wrapper fl">
     <i class="iconfont icon-dingwei" />
-    <span class="city-name">北京</span>
+    <span v-if="poi" class="city-name">{{ poi.city }}</span>
 
     <nuxt-link to="/city" class="change-city">切换城市</nuxt-link>
 
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -25,6 +27,9 @@ export default {
         { id: 3, name: '廊坊' },
       ],
     }
+  },
+  computed: {
+    ...mapState(['poi']),
   },
 }
 </script>

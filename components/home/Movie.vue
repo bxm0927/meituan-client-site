@@ -1,8 +1,8 @@
 <!-- 首页 猫眼电影 -->
 
 <template>
-  <section class="film-wrapper">
-    <div class="film-header">
+  <section class="movie-wrapper">
+    <div class="movie-header">
       <ul class="clearfix">
         <li class="nav-item fl title mf-shang-hei-regular">猫眼电影</li>
         <li
@@ -20,20 +20,20 @@
       </ul>
     </div>
 
-    <div class="film-content">
-      <FilmSlides v-show="activeNavItem === 1" :slides="hotFilms" />
-      <FilmSlides v-show="activeNavItem === 2" :slides="comingFilms" />
+    <div class="movie-content">
+      <MovieSlides v-show="activeNavItem === 1" :slides="hotFilms" />
+      <MovieSlides v-show="activeNavItem === 2" :slides="comingFilms" />
     </div>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import FilmSlides from './FilmSlides.vue'
+import MovieSlides from './MovieSlides.vue'
 
 export default {
   components: {
-    FilmSlides,
+    MovieSlides,
   },
   data() {
     return {
@@ -57,11 +57,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.film-wrapper {
+.movie-wrapper {
   margin-top: 40px;
 }
 
-.film-header {
+.movie-header {
   box-sizing: border-box;
   height: 44px;
   padding: 0 12px;
@@ -120,7 +120,7 @@ export default {
   }
 }
 
-.film-content {
+.movie-content {
   position: relative;
   box-sizing: border-box;
   height: 340px;
@@ -132,7 +132,7 @@ export default {
   border-radius: 0 0 5px 5px;
 }
 
-.film-content:hover {
+.movie-content:hover {
   /deep/ .navigation .btn {
     opacity: 0.9;
   }

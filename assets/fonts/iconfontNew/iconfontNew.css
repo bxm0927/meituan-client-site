@@ -29,7 +29,7 @@
   content: '\e616';
 }
 
-.icon-maoyan::before {
+.icon-movie::before {
   color: #ff3d00;
   line-height: 18px;
   vertical-align: middle;
@@ -43,28 +43,28 @@
   content: '\e607';
 }
 
-.icon-zhenguo::before {
+.icon-homestay::before {
   color: #ffb500;
   line-height: 18px;
   vertical-align: middle;
   content: '\e60c';
 }
 
-.icon-beauty::before {
+.icon-hair::before {
   color: #ff4081;
   line-height: 18px;
   vertical-align: middle;
   content: '\e60f';
 }
 
-.icon-married::before {
+.icon-marry::before {
   color: #ff4081;
   line-height: 18px;
   vertical-align: middle;
   content: '\e609';
 }
 
-.icon-child::before {
+.icon-offspring::before {
   color: #ff4081;
   line-height: 18px;
   vertical-align: middle;
@@ -78,21 +78,21 @@
   content: '\e611';
 }
 
-.icon-decorate::before {
+.icon-furniture::before {
   color: #00bf96;
   line-height: 18px;
   vertical-align: middle;
   content: '\e60b';
 }
 
-.icon-education::before {
+.icon-study::before {
   color: #00bf96;
   line-height: 18px;
   vertical-align: middle;
   content: '\e610';
 }
 
-.icon-medical::before {
+.icon-health::before {
   color: #03a9f4;
   line-height: 18px;
   vertical-align: middle;
@@ -106,14 +106,14 @@
   content: '\e606';
 }
 
-.icon-waimai::before {
+.icon-takeout::before {
   color: #ffb500;
   line-height: 18px;
   vertical-align: middle;
   content: '\e60a';
 }
 
-.icon-plane::before {
+.icon-airport::before {
   color: #03a9f4;
   line-height: 18px;
   vertical-align: middle;

@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { debounce } from 'lodash'
+import { throttle } from 'lodash'
 import SearchHotword from '@/components/common/header/searchbar/SearchHotword.vue'
 
 export default {
@@ -97,8 +97,8 @@ export default {
   },
   methods: {
     // 输入框输入时 input
-    // 节流操作
-    handelSearchInput: debounce(function () {
+    // 节流操作 https://www.lodashjs.com/docs/lodash.throttle
+    handelSearchInput: throttle(function () {
       console.log(this.searchKeyword)
     }, 500),
     // 输入框聚焦时 focus

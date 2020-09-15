@@ -4,7 +4,7 @@
   <div class="hot-container">
     <!-- 电影滑块 -->
     <ul ref="slidesRef" class="slides">
-      <FilmSlidesItem v-for="item in slides" :key="item.id" :data="item" />
+      <MovieSlidesItem v-for="item in slides" :key="item.id" :data="item" />
     </ul>
 
     <!-- 翻页器 -->
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import FilmSlidesItem from './FilmSlidesItem.vue'
+import MovieSlidesItem from './MovieSlidesItem.vue'
 
 export default {
   components: {
-    FilmSlidesItem,
+    MovieSlidesItem,
   },
   props: {
     slides: {

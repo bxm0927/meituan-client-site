@@ -1,20 +1,25 @@
 export const state = () => ({
-  counter: 0,
-  ip: '',
+  poi: null,
+  userInfo: null,
 })
 
 export const mutations = {
-  increment(state) {
-    state.counter++
+  setPoi(state, poi) {
+    state.poi = poi
   },
-  setIp(state, ip) {
-    state.ip = ip
+  setUserInfo(state, userInfo) {
+    state.userInfo = userInfo
   },
 }
 
 export const actions = {
   async nuxtServerInit({ commit }, { $axios }) {
-    // const ip = await $axios.$get('http://icanhazip.com')
-    // commit('setIp', ip)
+    const [poi, userInfo] = await Promise.all([
+      $axios.$get('/api/geo/poi'), // 城市定位
+      $axios.$get('/api/users/info'), // 已登录用户的信息
+    ])
+
+    commit('setPoi', poi.data)
+    commit('setUserInfo', userInfo.data)
   },
 }

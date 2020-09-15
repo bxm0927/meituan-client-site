@@ -4,39 +4,36 @@
   但是美团官网的实现和这个貌似不太一样
 -->
 <template>
-  <div class="left-category fl">
-    <p class="category-title">全部分类</p>
+  <div class="left-menu fl">
+    <p class="menu-title">全部分类</p>
 
-    <ul class="category-content" @mouseleave="handelCategoryOut">
+    <ul class="menu-content" @mouseleave="handelMenuOut">
       <li
-        v-for="category in categories"
-        :key="category.id"
-        class="category-item"
-        @mouseenter="handelCategoryEnter(category)"
+        v-for="menuItem in menu"
+        :key="menuItem.type"
+        class="menu-item"
+        :class="{ active: menuItem.type === activeMenuType }"
+        @mouseenter="handelMenuEnter(menuItem)"
       >
-        <i :class="`iconfontNew icon-${category.type}`" />
-        <span class="items">
-          <a v-for="item in category.items" :key="item" class="text-link" href="#" target="_blank">
-            {{ item }}
-            <span v-if="category.hot" class="hot">HOT</span>
-          </a>
-        </span>
+        <i :class="`iconfontNew icon-${menuItem.type}`" />
+        <span class="name">{{ menuItem.name }}</span>
+        <span v-if="menuItem.name === '酒店'" class="hot">HOT</span>
         <i class="arrow" />
       </li>
     </ul>
 
     <div
-      v-if="activeCategory"
-      class="category-detail"
-      @mouseenter="handelCategoryDetailEnter"
-      @mouseleave="handelCategoryDetailOut"
+      v-if="activeMenuType"
+      class="menu-detail"
+      @mouseenter="handelMenuDetailEnter"
+      @mouseleave="handelMenuDetailOut"
     >
-      <dl v-for="(item, index) in activeCategoryDetail" :key="index">
+      <dl v-for="item in activeMenu" :key="item.title">
         <dt class="clearfix">
           <h2 class="fl">{{ item.title }}</h2>
           <a class="fr more" href="#" target="_blank">更多</a>
         </dt>
-        <dd v-for="data in item.datas" :key="data">
+        <dd v-for="data in item.child" :key="data">
           <a href="#" target="_blank">{{ data }}</a>
         </dd>
       </dl>
@@ -50,37 +47,37 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      activeCategory: '',
-      timer: null,
+      menuTimer: null,
+      activeMenuType: '',
     }
   },
   computed: {
-    ...mapState('modules/home', ['categories']),
-    activeCategoryDetail() {
-      return this.categories.find((i) => i.type === this.activeCategory).children
+    ...mapState('modules/home', ['menu']),
+    activeMenu() {
+      return this.menu.find((i) => i.type === this.activeMenuType).child
     },
   },
   methods: {
-    handelCategoryEnter(category) {
-      this.activeCategory = category.type
+    handelMenuEnter(item) {
+      this.activeMenuType = item.type
     },
-    handelCategoryOut() {
-      this.timer = setTimeout(() => {
-        this.activeCategory = ''
+    handelMenuOut() {
+      this.menuTimer = setTimeout(() => {
+        this.activeMenuType = ''
       }, 200)
     },
-    handelCategoryDetailEnter() {
-      clearTimeout(this.timer)
+    handelMenuDetailEnter() {
+      clearTimeout(this.menuTimer)
     },
-    handelCategoryDetailOut() {
-      this.activeCategory = ''
+    handelMenuDetailOut() {
+      this.activeMenuType = ''
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.left-category {
+.left-menu {
   position: relative;
   box-sizing: border-box;
   width: 230px;
@@ -91,7 +88,7 @@ export default {
   border: 1px solid #e5e5e5;
 }
 
-.category-title {
+.menu-title {
   height: 50px;
   padding: 0 15px;
   color: #222;
@@ -100,12 +97,12 @@ export default {
   line-height: 50px;
 }
 
-.category-content {
+.menu-content {
   height: 415px;
   margin-top: 10px;
 }
 
-.category-item {
+.menu-item {
   position: relative;
   box-sizing: border-box;
   height: 25.5px;
@@ -115,7 +112,7 @@ export default {
     display: inline-block;
     width: 16px;
   }
-  .items {
+  .name {
     margin-left: 10px;
   }
   .text-link {
@@ -157,7 +154,7 @@ export default {
     border-bottom: 1px solid #bfbfbf;
     transform: rotate(-45deg);
   }
-  &:hover {
+  &.active {
     color: #222;
     background-color: rgba(255, 150, 0, 0.08);
     .text-link {
@@ -178,18 +175,21 @@ export default {
   }
 }
 
-.category-detail {
+.menu-detail {
   position: absolute;
-  top: 59px;
+  top: 58px;
   left: 229px;
   z-index: 10;
+  box-sizing: border-box;
   width: 400px;
   height: 416px;
   overflow: hidden;
   color: #666;
   background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-left: 0;
   dl {
-    margin-top: 24px;
+    margin-top: 14px;
     padding: 0 30px;
   }
   dt {
@@ -202,7 +202,6 @@ export default {
       color: #222;
       font-weight: 500;
       font-size: 16px;
-      cursor: pointer;
     }
     .more {
       position: relative;
@@ -231,7 +230,7 @@ export default {
   }
   dd {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-right: 16px;
     a {
       position: relative;

@@ -13,22 +13,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  data() {
-    return {
-      userInfo: '',
-    }
-  },
-  mounted() {
-    this.getUserInfo()
+  computed: {
+    ...mapState(['userInfo']),
   },
   methods: {
-    async getUserInfo() {
-      const result = await this.$axios.$get('/api/users/info')
-      if (result.code === '0') {
-        this.userInfo = result.data
-      }
-    },
     async logout() {
       const result = await this.$axios.$get('/api/users/logout')
       if (result.code === '0') {

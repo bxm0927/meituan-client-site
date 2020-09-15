@@ -1,6 +1,6 @@
 <template>
   <section class="banner-wrapper clearfix">
-    <BannerCategory />
+    <BannerMenu />
 
     <div class="right-banner fl">
       <div class="banner-row row1 clearfix">
@@ -11,10 +11,16 @@
         </div>
 
         <div class="col4 login fr">
-          <img class="avatar" src="@/assets/images/common/avatar.jpg" alt="用户头像" />
-          <p class="hello ellipsis">Hi！你好</p>
-          <a href="#" class="btn register-btn" target="_blank">注册</a>
-          <a href="#" class="btn login-btn" target="_blank">立即登录</a>
+          <template v-if="userInfo">
+            <img class="avatar" src="@/assets/images/common/avatar.jpg" alt="用户头像" />
+            <p class="hello ellipsis">Hi！{{ decodeURIComponent(userInfo.username) }}</p>
+          </template>
+          <template v-else>
+            <img class="avatar" src="@/assets/images/common/avatar.jpg" alt="用户头像" />
+            <p class="hello ellipsis">Hi！你好</p>
+            <a href="/login" class="btn login-btn">立即登录</a>
+            <a href="/register" class="btn register-btn">注册</a>
+          </template>
         </div>
       </div>
 
@@ -42,13 +48,17 @@
 </template>
 
 <script>
-import BannerCategory from './BannerCategory.vue'
+import { mapState } from 'vuex'
+import BannerMenu from './BannerMenu.vue'
 import BannerSlides from './BannerSlides.vue'
 
 export default {
   components: {
-    BannerCategory,
+    BannerMenu,
     BannerSlides,
+  },
+  computed: {
+    ...mapState(['userInfo']),
   },
 }
 </script>

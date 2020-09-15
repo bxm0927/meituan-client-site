@@ -3,19 +3,19 @@
 <template>
   <li class="slide-item">
     <a :href="`https://maoyan.com/films/${data.id}`" target="_blank" :title="data.videoName">
-      <img class="film-img" :src="filmImg" :alt="data.videoName" />
+      <img class="movie-img" :src="filmImg" :alt="data.videoName" />
 
-      <img v-if="filmMark" :src="filmMark.pic" :alt="filmMark.name" class="film-mark" />
+      <img v-if="filmMark" :src="filmMark.pic" :alt="filmMark.name" class="movie-mark" />
 
-      <div class="film-info">
-        <p v-if="data.mk" class="film-score">
+      <div class="movie-info">
+        <p v-if="data.mk" class="movie-score">
           观众评分 <span>{{ data.mk }}</span>
         </p>
-        <p v-else class="film-score">
+        <p v-else class="movie-score">
           <span>{{ data.wish }}</span> 人想看
         </p>
 
-        <p class="film-name ellipsis" :title="data.nm">{{ data.nm }}</p>
+        <p class="movie-name ellipsis" :title="data.nm">{{ data.nm }}</p>
 
         <button v-if="data.preSale" class="btn buy-ticket" @click.stop.prevent="preSale">
           预售
@@ -99,13 +99,13 @@ export default {
   margin-right: 2%;
 }
 
-.film-img {
+.movie-img {
   width: 100%;
   height: 100%;
   border-radius: 4px;
 }
 
-.film-mark {
+.movie-mark {
   position: absolute;
   top: 10px;
   left: -6px;
@@ -114,7 +114,7 @@ export default {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
-.film-info {
+.movie-info {
   position: absolute;
   bottom: 0;
   box-sizing: border-box;
@@ -124,7 +124,7 @@ export default {
   // 渐变黑色透明遮罩
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(29, 45, 55, 0.8) 99%);
   border-radius: 0 0 4px 4px;
-  .film-score {
+  .movie-score {
     color: #fff;
     font-weight: 500;
     font-size: 12px;
@@ -133,7 +133,7 @@ export default {
       font-size: 16px;
     }
   }
-  .film-name {
+  .movie-name {
     width: 8em;
     color: #fff;
     font-weight: 500;
