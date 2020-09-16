@@ -25,8 +25,10 @@ export default {
     Recommend,
   },
   async fetch({ $axios, store }) {
-    const [menu, hotFilms, comingFilms, minsuCitys, recommends] = await Promise.all([
+    const [menu, topsearches, hotFilms, comingFilms, minsuCitys, recommends] = await Promise.all([
       $axios.$get('/api/search/menu'),
+      $axios.$get('/api/search/topsearches'),
+
       $axios.$get('/mock/hotFilms.json'),
       $axios.$get('/mock/comingFilms.json'),
       $axios.$get('/mock/minsuCitys.json'),
@@ -34,6 +36,7 @@ export default {
     ])
 
     store.commit('modules/home/setMenu', menu.data)
+    store.commit('modules/home/setTopsearches', topsearches.data)
     store.commit('modules/home/setHotFilms', hotFilms.data.hot)
     store.commit('modules/home/setComingFilms', comingFilms.data.coming)
     store.commit('modules/home/setMinsuCitys', minsuCitys.cityList)

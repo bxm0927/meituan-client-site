@@ -3,7 +3,7 @@
  * @Author: xiaoming.bai
  * @Date: 2020-09-14 19:52:22
  * @Last Modified by: xiaoming.bai
- * @Last Modified time: 2020-09-14 23:38:24
+ * @Last Modified time: 2020-09-17 00:15:33
  */
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -24,7 +24,7 @@ export default {
    * See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '高仿美团网',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -48,6 +48,13 @@ export default {
     '@/assets/fonts/iconfontNew/iconfontNew.css',
     '@/assets/fonts/MFShangHei-Regular/MFShangHei-Regular.css',
   ],
+
+  /**
+   * Customize the progress-bar color
+   */
+  loading: {
+    color: '#f7c443',
+  },
 
   /**
    * Plugins to load before mounting the App
